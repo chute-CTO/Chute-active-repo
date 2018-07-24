@@ -1,0 +1,44 @@
+service{% extends 'laundromat/base.html' %}
+
+{% block page %}
+    <div class="panel">
+        <div class="panel-heading bg-blue">
+            <h4 class="panel-title text-center text-white">Services</h4>
+        </div>
+        <div class="panel-body">
+            <div class="text-right">
+                <a href="{% url 'laundromat-add-service' %}" class="btn btn-pink">Add Service</a>
+                <br/>
+                <br/>
+            </div>
+
+            <table class="table table-bordered table-hover table-striped">
+                <thead>
+                  <tr class="bg-gray">
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Short Description</th>
+                    <th>Price</th>
+                    <th class="text-center">Image</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    {% for service in services %}
+                        <tr>
+                          <td scope="row">{{ service.id }}</td>
+                          <td><a href="{% url 'laundromat-edit-service' service.id %}">{{ service.name }}</a></td>
+                          <td>{{ service.short_description }}</td>
+                          <td>{{ service.price }}</td>
+                          <td class="text-center"><img class="img-rounded"
+                              src="{{ MEDIA_URL }}{{ service.image }}" width="50" height="50"></td>
+                        </tr>
+
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+
+{% endblock %}

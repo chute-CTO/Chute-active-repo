@@ -7,7 +7,7 @@ django-bootstrap3==10.0.1
 django-braces==1.13.0
 django-oauth-toolkit==1.2.0
 django-rest-framework-social-oauth2==1.1.0
-djangorestframework==3.8.2
+djangorestframework==3.11.2
 gunicorn==19.8.1
 heroku==0.1.4
 idna==2.6
